@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,7 +9,9 @@ public class player : MonoBehaviour
     private Vector2 movementInput;
     private Rigidbody rb;
     public int t = 1;
-  
+
+    public List<GameObject> shrines;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
