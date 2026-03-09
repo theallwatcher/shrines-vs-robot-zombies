@@ -12,6 +12,8 @@ public class player : MonoBehaviour
 
     public List<GameObject> shrines;
 
+    public int health = 2000;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -54,6 +56,11 @@ public class player : MonoBehaviour
         transform.position += transform.rotation * positionChange;
 
         //made with help of tutoriel from Ketra Games (https://www.youtube.com/watch?v=V09EyTSNNN8)
+    }
+
+    private void OnTriggerEnter(Collider other){
+        
+        if (other.tag == "zombie") { health = health - 100; }
     }
 
 }

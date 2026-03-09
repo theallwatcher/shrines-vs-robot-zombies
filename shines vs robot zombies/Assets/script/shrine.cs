@@ -25,4 +25,15 @@ public class shrine : MonoBehaviour
     {
         _tile.canPlaceShrines = true;
     }
+
+    private void OnTriggerEnter(Collider other){
+
+        if (other.tag == "zombie"){
+
+            TakeDamage();
+        }
+    }
+
+    public void TakeDamage() { }
+
 }
