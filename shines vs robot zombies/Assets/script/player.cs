@@ -1,5 +1,7 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,12 +15,16 @@ public class player : MonoBehaviour
     public List<GameObject> shrines;
 
     public int health = 2000;
+    [SerializeField] TextMeshProUGUI healthText;
+    bool canTakeDamage = true;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
+        UpdateHealth();
     }
 
     private void OnMove(InputValue inputValue){
@@ -58,9 +64,21 @@ public class player : MonoBehaviour
         //made with help of tutoriel from Ketra Games (https://www.youtube.com/watch?v=V09EyTSNNN8)
     }
 
+    IEnumerator UpdateHealth() { 
+    
+        healthText.text = health.ToString();
+        yield return new WaitForSeconds(1);
+        canTakeDamage = true;
+    }
+
     private void OnTriggerEnter(Collider other){
         
-        if (other.tag == "zombie") { health = health - 100; }
+        if (other.tag == "zombie" && canTakeDamage == true) { 
+            
+            health = health - 100; 
+            canTakeDamage = false;
+            StartCoroutine(UpdateHealth());
+        }
     }
 
 }
