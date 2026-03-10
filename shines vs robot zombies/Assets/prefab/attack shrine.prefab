@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6364206355625382614}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: fire point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6830320878676233791}
   - component: {fileID: 8770674233237396680}
   - component: {fileID: 6443925581409752309}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: attack shrine
   m_TagString: shrine
   m_Icon: {fileID: 0}
