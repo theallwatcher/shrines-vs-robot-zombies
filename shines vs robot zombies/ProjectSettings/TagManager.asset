@@ -6,14 +6,15 @@ TagManager:
   tags:
   - shrine
   - zombie
+  - bullet
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - bullet
   - Water
   - UI
-  - 
+  - zombie
   - 
   - 
   - 

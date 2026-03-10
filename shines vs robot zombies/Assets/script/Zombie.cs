@@ -63,8 +63,12 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    private void TakeDamage() { 
-    
+    private void TakeDamage() {
 
+        health = health - 20;
+        if (health <= 0) { 
+        
+            Destroy(gameObject);
+        }
     }
 }
