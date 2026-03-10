@@ -58,8 +58,7 @@ public class player : MonoBehaviour
     
         Vector3 positionChange = new Vector3(movementInput.x,0,movementInput.y) * Time.deltaTime * speed;
 
-        //Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward
-        transform.position += transform.rotation * positionChange;
+        rb.linearVelocity = transform.rotation * positionChange;
 
         //made with help of tutoriel from Ketra Games (https://www.youtube.com/watch?v=V09EyTSNNN8)
     }
