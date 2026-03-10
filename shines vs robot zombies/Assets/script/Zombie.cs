@@ -8,6 +8,8 @@ public class Zombie : MonoBehaviour
     public bool isMoving;
     public int health = 270;
 
+    [SerializeField] CapsuleCollider collidder;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
 
@@ -29,7 +31,7 @@ public class Zombie : MonoBehaviour
 
     private void Update(){
 
-        Vector3 forward = new Vector3(transform.position.x - 2, transform.position.y, transform.position.z);
+        Vector3 forward = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
         Debug.DrawLine(transform.position, forward, Color.green);
         if (IsCloseEnough() == true && isMoving == true){
 
@@ -45,7 +47,7 @@ public class Zombie : MonoBehaviour
 
         RaycastHit _hit;
         
-        if (Physics.Raycast(transform.position,transform.forward, out _hit, 2f)){
+        if (Physics.Raycast(transform.position,transform.forward, out _hit, 1f)){
 
             if (_hit.transform.tag == "shrine"){
 
@@ -66,9 +68,10 @@ public class Zombie : MonoBehaviour
     private void TakeDamage() {
 
         health = health - 20;
-        if (health <= 0) { 
-        
-            Destroy(gameObject);
+        if (health <= 0) {
+
+            collidder.radius = 0.006f;
+            Destroy(gameObject,0.1f);
         }
     }
 }

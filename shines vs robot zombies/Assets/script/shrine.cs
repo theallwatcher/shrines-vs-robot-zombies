@@ -1,10 +1,12 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class shrine : MonoBehaviour
 {
-
+    Coroutine lastRoutine = null;
     gridTile _tile;
+    [SerializeField] int health;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,10 +32,26 @@ public class shrine : MonoBehaviour
 
         if (other.tag == "zombie"){
 
-            TakeDamage();
+            lastRoutine = StartCoroutine(TakeDamage());
         }
+    } 
+    IEnumerator TakeDamage() {
+
+        yield return new WaitForSeconds(1);
+        health = health - 100;
+        if (health <= 0) { 
+        
+            Destroy(gameObject);
+        }
+        lastRoutine = StartCoroutine(TakeDamage());
     }
 
-    public void TakeDamage() { }
+    private void OnTriggerExit(Collider other){
+
+        if (other.tag == "zombie"){
+
+            StopCoroutine(lastRoutine);
+        }
+    }
 
 }
