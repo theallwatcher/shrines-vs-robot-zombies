@@ -1,22 +1,31 @@
+using JetBrains.Annotations;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class player : MonoBehaviour
 {
+    [Header("movement")]
+
     [SerializeField] private float speed;
     private Vector2 movementInput;
     private Rigidbody rb;
-    public int t = 1;
 
-    public List<GameObject> shrines;
-
+    [Header("health")]
     public int health = 2000;
     [SerializeField] TextMeshProUGUI healthText;
     bool canTakeDamage = true;
+
+    [Header("shine select")]
+    public int curSelectShrine = 0;
+    [SerializeField] GameObject shrineSelectorPref;
+    [SerializeField] List<RectTransform> spawnPoints;
+    public List<GameObject> shrines;
+    GameObject shrineSelect;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,6 +34,7 @@ public class player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         UpdateHealth();
+        ValueChange();
     }
 
     private void OnMove(InputValue inputValue){
@@ -33,25 +43,27 @@ public class player : MonoBehaviour
 
     }
 
+    private void OnSelectUp() {
+
+        curSelectShrine--;
+        Debug.Log("up");
+        ValueChange();
+    }
+
+    private void OnSelectDown() {
+
+        curSelectShrine++;
+        Debug.Log("douwn");
+        ValueChange();
+    }
+
+
     // Update is called once per frame
     void Update(){
 
         Move();
-        if (Keyboard.current.pKey.wasPressedThisFrame){
 
-            if (t == 0)
-            {
-
-                Cursor.lockState = CursorLockMode.Locked;
-                t = 1;
-            }
-            else if (t == 1){
-
-                Cursor.lockState = CursorLockMode.None;
-                t = 0;
-            }
-            
-        }
+        
     }
 
     private void Move() { 
@@ -80,4 +92,24 @@ public class player : MonoBehaviour
         }
     }
 
+
+    private void ValueChange() {
+
+        if (curSelectShrine <= 0){
+
+            curSelectShrine = 0;
+        }
+
+        if (curSelectShrine >= 2){
+
+            curSelectShrine = 2;
+        }
+
+        if (shrineSelect != null) { 
+        
+            shrineSelect.GetComponent<selector>().Die();
+        }
+
+        shrineSelect = Instantiate(shrineSelectorPref, spawnPoints[curSelectShrine].position, spawnPoints[curSelectShrine].rotation, spawnPoints[curSelectShrine]);
+    }
 }

@@ -24,7 +24,7 @@ public class gridTile : MonoBehaviour
         if (canPlaceShrines == true){
 
             Debug.Log("test");
-            shrineSpawn = Instantiate(player.shrines[0], spawnPoint.position, spawnPoint.rotation);
+            shrineSpawn = Instantiate(player.shrines[player.curSelectShrine], spawnPoint.position, spawnPoint.rotation);
             shrineSpawn.GetComponent<shrine>().LinkShrine(this);
             canPlaceShrines = false;
         }

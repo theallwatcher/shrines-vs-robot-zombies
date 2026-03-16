@@ -14,6 +14,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "selectUp",
+                    "type": "Button",
+                    "id": "c0baca76-881a-4394-bcbb-d6363ee614dc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "selectDown",
+                    "type": "Button",
+                    "id": "d22e7c94-175a-4ed1-b898-0dc9a88cf3e9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -82,6 +100,28 @@
                     "action": "move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "29fd2d3b-ef59-461f-861e-0a9aded7f141",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";keyboard",
+                    "action": "selectUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b5db4dcc-4c8e-4934-a4a5-73ca92642f67",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";keyboard",
+                    "action": "selectDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
