@@ -47,7 +47,7 @@ public class AttackShrine : MonoBehaviour
 
     bool ZombieInLane(){
 
-        int layerMask = ~LayerMask.GetMask("shrine", "bullet", "Default");
+        int layerMask = ~LayerMask.GetMask("shrine", "bullet", "Default", "skyShard");
         RaycastHit _hit;
 
         if (Physics.Raycast(transform.position, transform.forward, out _hit, 27f,layerMask)){

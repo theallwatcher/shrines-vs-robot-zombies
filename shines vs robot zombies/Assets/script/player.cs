@@ -27,11 +27,13 @@ public class player : MonoBehaviour
     public List<GameObject> shrines;
     GameObject shrineSelect;
 
+    inventory _inventory;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        _inventory = FindFirstObjectByType<inventory>();
         Cursor.lockState = CursorLockMode.Locked;
         UpdateHealth();
         ValueChange();
@@ -89,6 +91,13 @@ public class player : MonoBehaviour
             health = health - 100; 
             canTakeDamage = false;
             StartCoroutine(UpdateHealth());
+        }
+
+        if (other.tag == "skyShard") {
+        
+            _inventory.skyShardsCount = _inventory.skyShardsCount + 25;
+            other.GetComponent<skyShard>().Die();
+            _inventory.UpdateText();
         }
     }
 
