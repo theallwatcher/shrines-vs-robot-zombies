@@ -10,6 +10,7 @@ public class ZombieSpawning : MonoBehaviour
     [SerializeField] GameObject zombiePre;
     public float tilNextZom;
     public int randomSpawn;
+    public int setupTime;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
@@ -19,7 +20,7 @@ public class ZombieSpawning : MonoBehaviour
 
     IEnumerator StartUp() { 
     
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(setupTime);
         StartCoroutine(Spawning());
     }
 

@@ -1582,6 +1582,7 @@ MonoBehaviour:
   zombiePre: {fileID: 6352560290505875782, guid: fdbf77cf856090545990696cf4fae508, type: 3}
   tilNextZom: 0
   randomSpawn: 0
+  setupTime: 4
 --- !u!4 &1398967377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7678615720709261894, guid: 9bae070e463435348865e6ba2b88f5e9, type: 3}
@@ -1768,7 +1769,7 @@ MonoBehaviour:
   speed: 450
   t: 1
   shrines:
-  - {fileID: 6325087215925395089, guid: eb18fa4cb6e4cb34db551902f2360819, type: 3}
+  - {fileID: 6325087215925395089, guid: 265188f997a40b74cb3958cfe2b28564, type: 3}
   health: 2000
   healthText: {fileID: 25502031}
 --- !u!114 &1554911689
