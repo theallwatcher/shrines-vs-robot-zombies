@@ -7,6 +7,7 @@ public class SkySmasherShrine : MonoBehaviour
     [SerializeField] GameObject skyShard;
     [SerializeField] Transform firePoint;
     Coroutine lastRoutine = null;
+    public int deleay;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,8 +21,8 @@ public class SkySmasherShrine : MonoBehaviour
         int randomX = Random.Range(-1, 2);
         int randomZ = Random.Range(-1, 2);
 
-        Vector3 pos = new Vector3(firePoint.position.x + randomX, 0, firePoint.position.z + randomZ);
-        yield return new WaitForSeconds(24);
+        Vector3 pos = new Vector3(firePoint.position.x + randomX, firePoint.position.y, firePoint.position.z + randomZ);
+        yield return new WaitForSeconds(deleay);
         GameObject shard = Instantiate(skyShard, pos, firePoint.rotation);
         lastRoutine = StartCoroutine(Smashing());
     }
