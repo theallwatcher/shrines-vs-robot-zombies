@@ -2085,7 +2085,7 @@ MonoBehaviour:
   zombiePre: {fileID: 6352560290505875782, guid: fdbf77cf856090545990696cf4fae508, type: 3}
   tilNextZom: 0
   randomSpawn: 0
-  setupTime: 4
+  setupTime: 40
 --- !u!4 &1398967377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7678615720709261894, guid: 9bae070e463435348865e6ba2b88f5e9, type: 3}
@@ -2269,7 +2269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b65dae248ff752146aa93b020ae24b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::player
-  speed: 600
+  speed: 900
   health: 2000
   healthText: {fileID: 25502031}
   curSelectShrine: 0
@@ -2280,8 +2280,8 @@ MonoBehaviour:
   - {fileID: 1025435569}
   shrines:
   - {fileID: 6325087215925395089, guid: 265188f997a40b74cb3958cfe2b28564, type: 3}
+  - {fileID: 4619125839775014348, guid: a6ca9bd0e4c412749ad3e669e243fe7c, type: 3}
   - {fileID: 6325087215925395089, guid: eb18fa4cb6e4cb34db551902f2360819, type: 3}
-  - {fileID: 6325087215925395089, guid: 1a2988d86a7f6884b9d0e24fbe8b124a, type: 3}
 --- !u!114 &1554911689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3182,8 +3182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e4aa18628ba5642bed9ac01b1f4235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::inventory
-  skyShardsCount: 5000
-  skyShardsCost: 640000003200000000000000
+  skyShardsCount: 50
+  skyShardsCost: 640000003200000032000000
   skyShardText: {fileID: 490592126}
   randomX: 0
   randomZ: 0

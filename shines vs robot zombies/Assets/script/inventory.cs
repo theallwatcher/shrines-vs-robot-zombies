@@ -103,7 +103,7 @@ public class inventory : MonoBehaviour
         randomZ = (int)Random.Range(-7.5f, 7.5f);
 
         Vector3 spawnPoint = new Vector3(randomX,30,randomZ);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(10);
 
         GameObject skyShard = Instantiate(skyShardPref, spawnPoint, transform.rotation);
         

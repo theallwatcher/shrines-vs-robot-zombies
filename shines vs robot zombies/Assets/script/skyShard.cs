@@ -11,7 +11,7 @@ public class skyShard : MonoBehaviour
 
     IEnumerator KYS(){
 
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(30);
         Destroy(gameObject);
     }
 }
