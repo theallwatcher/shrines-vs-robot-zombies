@@ -96,7 +96,7 @@ public class player : MonoBehaviour
         if (other.tag == "skyShard") {
         
             _inventory.skyShardsCount = _inventory.skyShardsCount + 25;
-            other.GetComponent<skyShard>().Die();
+            Destroy(other.gameObject);
             _inventory.UpdateText();
         }
     }
@@ -114,9 +114,10 @@ public class player : MonoBehaviour
             curSelectShrine = 2;
         }
 
-        if (shrineSelect != null) { 
-        
-            shrineSelect.GetComponent<selector>().Die();
+        if (shrineSelect != null) {
+
+            Destroy(shrineSelect);
+            
         }
 
         shrineSelect = Instantiate(shrineSelectorPref, spawnPoints[curSelectShrine].position, spawnPoints[curSelectShrine].rotation, spawnPoints[curSelectShrine]);
