@@ -3188,6 +3188,9 @@ MonoBehaviour:
   randomX: 0
   randomZ: 0
   skyShardPref: {fileID: 2214825994766641220, guid: c67c86d7708568f4598769e9b6578f80, type: 3}
+  s0: 1
+  s1: 1
+  s2: 1
 --- !u!4 &2139664077
 Transform:
   m_ObjectHideFlags: 0

@@ -25,14 +25,20 @@ public class gridTile : MonoBehaviour
 
         if (canPlaceShrines == true){
 
-            bool enoughSkyShards = inventory.CheckSkyShards(inventory.skyShardsCost[player.curSelectShrine]);
+            bool noTimeOut = inventory.TimeOutCheck(player.curSelectShrine);
 
-            if (enoughSkyShards == true){
+            if (noTimeOut == true){
 
-                Debug.Log("test");
-                shrineSpawn = Instantiate(player.shrines[player.curSelectShrine], spawnPoint.position, spawnPoint.rotation);
-                shrineSpawn.GetComponent<shrine>().LinkShrine(this);
-                canPlaceShrines = false;
+                bool enoughSkyShards = inventory.CheckSkyShards(inventory.skyShardsCost[player.curSelectShrine]);
+
+                if (enoughSkyShards == true){
+
+                    Debug.Log("test");
+                    shrineSpawn = Instantiate(player.shrines[player.curSelectShrine], spawnPoint.position, spawnPoint.rotation);
+                    shrineSpawn.GetComponent<shrine>().LinkShrine(this);
+                    canPlaceShrines = false;
+                    inventory.ActivteTimeOut(player.curSelectShrine);
+                }
             }
         }
     }
