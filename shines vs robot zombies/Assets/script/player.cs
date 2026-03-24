@@ -47,14 +47,14 @@ public class player : MonoBehaviour
 
     private void OnSelectUp() {
 
-        curSelectShrine--;
+        curSelectShrine++;
         Debug.Log("up");
         ValueChange();
     }
 
     private void OnSelectDown() {
 
-        curSelectShrine++;
+        curSelectShrine--;
         Debug.Log("douwn");
         ValueChange();
     }
