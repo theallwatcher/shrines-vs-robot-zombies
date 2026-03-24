@@ -17,6 +17,8 @@ public class inventory : MonoBehaviour
     public bool s1 = true;
     public bool s2 = true;
 
+    public bool paused = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
 
@@ -46,27 +48,31 @@ public class inventory : MonoBehaviour
 
     public bool TimeOutCheck(int type) {
 
-        if (type == 0 && s0 == false) {         
-            return false;
+        if (paused == false){
+
+            if (type == 0 && s0 == false){
+                return false;
+            }
+            else if (type == 0 && s0 == true){
+                return true;
+            }
+            else if (type == 1 && s1 == false){
+                return false;
+            }
+            else if (type == 1 && s1 == true){
+                return true;
+            }
+            else if (type == 2 && s2 == false){
+                return false;
+            }
+            else if (type == 2 && s2 == true){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
-        else if (type == 0 && s0 == true){
-            return true;
-        }
-        else if (type == 1 && s1 == false){
-            return false;
-        }
-        else if (type == 1 && s1 == true){
-            return true;
-        }
-        else if (type == 2 && s2 == false){
-            return false;
-        }
-        else if (type == 2 && s2 == true){
-            return true;
-        }
-        else{
-            return false;
-        }
+        else { return false; }
     }
 
     public void ActivteTimeOut(int type) {

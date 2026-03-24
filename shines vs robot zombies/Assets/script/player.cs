@@ -26,6 +26,7 @@ public class player : MonoBehaviour
     [SerializeField] List<RectTransform> spawnPoints;
     public List<GameObject> shrines;
     GameObject shrineSelect;
+    public bool paused =false;
 
     inventory _inventory;
 
@@ -47,16 +48,20 @@ public class player : MonoBehaviour
 
     private void OnSelectUp() {
 
-        curSelectShrine++;
-        Debug.Log("up");
-        ValueChange();
+        if (paused == false){
+            curSelectShrine++;
+            Debug.Log("up");
+            ValueChange();
+        }
     }
 
     private void OnSelectDown() {
 
-        curSelectShrine--;
-        Debug.Log("douwn");
-        ValueChange();
+        if (paused == false){
+            curSelectShrine--;
+            Debug.Log("douwn");
+            ValueChange();
+        }
     }
 
 
