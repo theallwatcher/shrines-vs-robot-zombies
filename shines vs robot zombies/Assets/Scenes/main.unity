@@ -2349,7 +2349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b65dae248ff752146aa93b020ae24b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::player
-  speed: 900
+  speed: 9
   health: 2000
   healthText: {fileID: 25502031}
   curSelectShrine: 0

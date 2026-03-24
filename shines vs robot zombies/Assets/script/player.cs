@@ -70,7 +70,7 @@ public class player : MonoBehaviour
 
     private void Move() { 
     
-        Vector3 positionChange = new Vector3(movementInput.x,0,movementInput.y) * Time.deltaTime * speed;
+        Vector3 positionChange = new Vector3(movementInput.x,0,movementInput.y) * speed;
 
         rb.linearVelocity = transform.rotation * positionChange;
 
