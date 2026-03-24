@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
@@ -85,6 +86,11 @@ public class player : MonoBehaviour
     IEnumerator UpdateHealth() { 
     
         healthText.text = health.ToString();
+        if (health <= 0) {
+
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("gameOver");
+        }
         yield return new WaitForSeconds(1);
         canTakeDamage = true;
     }
