@@ -18,6 +18,7 @@ public class inventory : MonoBehaviour
     public bool s2 = true;
 
     public bool paused = false;
+    public bool godMode = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
@@ -34,15 +35,22 @@ public class inventory : MonoBehaviour
 
     public bool CheckSkyShards(int cost){
 
-        if (cost <= skyShardsCount){
+        if (godMode == false){
 
-            skyShardsCount = skyShardsCount - cost;
-            skyShardText.text = skyShardsCount.ToString();
-            return true;
+            if (cost <= skyShardsCount){
+
+                skyShardsCount = skyShardsCount - cost;
+                skyShardText.text = skyShardsCount.ToString();
+                return true;
+            }
+            else{
+
+                return false;
+            }
         }
-        else{
+        else {
 
-            return false;
+            return true;
         }
     }
 
@@ -75,11 +83,15 @@ public class inventory : MonoBehaviour
         else { return false; }
     }
 
-    public void ActivteTimeOut(int type) {
+    public void ActivteTimeOut(int type)
+    {
 
-        if (type == 0) { StartCoroutine(S0()); }
-        else if (type == 1) { StartCoroutine(S1()); }
-        else if (type == 2) { StartCoroutine(S2()); }
+        if (godMode == false) { 
+
+            if (type == 0) { StartCoroutine(S0()); }
+            else if (type == 1) { StartCoroutine(S1()); }
+            else if (type == 2) { StartCoroutine(S2()); }
+        }
     }
 
     IEnumerator S0() { 
