@@ -73,10 +73,29 @@ public class ZombieSpawning : MonoBehaviour
             progressBar.fillAmount = newWidth;
             StartCoroutine(Spawning2());
         }
-        else if (totZom > 0 && totZom == 25){
+        else if (totZom > 0 && totZom <= 25){
 
-            waveSize = Random.Range(5, 10);
+            waveSize = Random.Range(10, 20);
             StartCoroutine(Wave());
+        }        
+    }
+
+    IEnumerator Spawning3(){
+
+        tilNextZom = Random.Range(15, 25);
+        randomSpawn = Random.Range(0, spawnPoints.Count);
+
+        GameObject zombie = Instantiate(zombiePre, spawnPoints[randomSpawn].position, spawnPoints[randomSpawn].rotation);
+
+        yield return new WaitForSeconds(tilNextZom);
+
+
+        if (totZom > 0){
+
+            totZom--;
+            float newWidth = (float)totZom / maxZom;
+            progressBar.fillAmount = newWidth;
+            StartCoroutine(Spawning3());
         }
         else if (totZom == 0){
 
@@ -102,7 +121,7 @@ public class ZombieSpawning : MonoBehaviour
             totZom--;
             float newWidth = (float)totZom / maxZom;
             progressBar.fillAmount = newWidth;
-            StartCoroutine(Spawning2());
+            StartCoroutine(Spawning3());
         }
         else if (waveSize == 0 && finalWave == true){
 
