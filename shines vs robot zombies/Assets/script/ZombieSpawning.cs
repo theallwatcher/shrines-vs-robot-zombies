@@ -9,12 +9,13 @@ public class ZombieSpawning : MonoBehaviour
     [SerializeField] List<Transform> spawnPoints;
     [SerializeField] int totZom = 50;
     public int maxZom = 50;
-    [SerializeField] GameObject zombiePre;
+    [SerializeField] List<GameObject> zombiePre;
     [SerializeField] Image progressBar;
     public float tilNextZom;
     public int randomSpawn;
     public int setupTime;
     public int waveSize;
+    public int randomZom;
     bool finalWave= false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,7 +37,7 @@ public class ZombieSpawning : MonoBehaviour
         tilNextZom = Random.Range(30, 40);
         randomSpawn = Random.Range(0, spawnPoints.Count);
 
-        GameObject zombie = Instantiate(zombiePre, spawnPoints[randomSpawn].position, spawnPoints[randomSpawn].rotation);
+        GameObject zombie = Instantiate(zombiePre[0], spawnPoints[randomSpawn].position, spawnPoints[randomSpawn].rotation);
 
         yield return new WaitForSeconds(tilNextZom);
 
@@ -60,11 +61,10 @@ public class ZombieSpawning : MonoBehaviour
 
         tilNextZom = Random.Range(20, 30);
         randomSpawn = Random.Range(0, spawnPoints.Count);
-
-        GameObject zombie = Instantiate(zombiePre, spawnPoints[randomSpawn].position, spawnPoints[randomSpawn].rotation);
+        randomZom = Random.Range(0, 2);
+        GameObject zombie = Instantiate(zombiePre[randomZom], spawnPoints[randomSpawn].position, spawnPoints[randomSpawn].rotation);
 
         yield return new WaitForSeconds(tilNextZom);
-
 
         if (totZom > 0 && totZom != 25){
 
@@ -84,8 +84,8 @@ public class ZombieSpawning : MonoBehaviour
 
         tilNextZom = Random.Range(15, 25);
         randomSpawn = Random.Range(0, spawnPoints.Count);
-
-        GameObject zombie = Instantiate(zombiePre, spawnPoints[randomSpawn].position, spawnPoints[randomSpawn].rotation);
+        randomZom = Random.Range (0, 3);
+        GameObject zombie = Instantiate(zombiePre[randomZom], spawnPoints[randomSpawn].position, spawnPoints[randomSpawn].rotation);
 
         yield return new WaitForSeconds(tilNextZom);
 
@@ -108,7 +108,17 @@ public class ZombieSpawning : MonoBehaviour
     IEnumerator Wave() {
 
         randomSpawn = Random.Range(0, spawnPoints.Count);
-        GameObject zombie = Instantiate(zombiePre, spawnPoints[randomSpawn].position, spawnPoints[randomSpawn].rotation);
+
+        if (finalWave == false){
+
+            randomZom = Random.Range(0, 2);
+        }
+        else if(finalWave == true){
+
+            randomZom = Random.Range(0, 3);
+        }
+
+        GameObject zombie = Instantiate(zombiePre[randomZom], spawnPoints[randomSpawn].position, spawnPoints[randomSpawn].rotation);
         yield return new WaitForSeconds(3);
         Debug.Log("wave" + waveSize);
         if (waveSize > 0){
