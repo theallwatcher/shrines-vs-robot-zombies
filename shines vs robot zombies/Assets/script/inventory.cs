@@ -19,12 +19,16 @@ public class inventory : MonoBehaviour
 
     public bool paused = false;
     public bool godMode = false;
+    public bool spawnSS = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
 
         UpdateText();
-        StartCoroutine(SkyShardSpawning());
+        if (spawnSS == true){
+
+            StartCoroutine(SkyShardSpawning());
+        }
     }
 
     // Update is called once per frame
@@ -115,7 +119,7 @@ public class inventory : MonoBehaviour
         s2 = true;
     }
 
-    IEnumerator SkyShardSpawning() {
+    public IEnumerator SkyShardSpawning() {
 
         randomX = Random.Range(10, 35);
         randomZ = (int)Random.Range(-7.5f, 7.5f);
