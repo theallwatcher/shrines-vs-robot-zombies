@@ -69,13 +69,7 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update(){
 
-        if (Keyboard.current.vKey.wasPressedThisFrame)
-        {
-            levelCounter counter = FindFirstObjectByType<levelCounter>();
-            counter.LevelWin();
-            Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene("startScene");
-        }
+       
 
         Move();
 

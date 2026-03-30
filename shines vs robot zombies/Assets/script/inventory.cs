@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class inventory : MonoBehaviour
 {
@@ -28,6 +30,16 @@ public class inventory : MonoBehaviour
         if (spawnSS == true){
 
             StartCoroutine(SkyShardSpawning());
+        }
+    }
+
+    private void Update(){
+        if (Keyboard.current.vKey.wasPressedThisFrame && godMode == true){
+
+            levelCounter counter = FindFirstObjectByType<levelCounter>();
+            counter.LevelWin();
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("startScene");
         }
     }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -106,7 +107,10 @@ public class tutorial : MonoBehaviour
         }
         else if (waveSize == 0){
 
-            Debug.Log("win");
+            levelCounter counter = FindFirstObjectByType<levelCounter>();
+            counter.LevelWin();
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("startScene");
         }
     }
 }

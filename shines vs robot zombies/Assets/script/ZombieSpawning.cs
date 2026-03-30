@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ZombieSpawning : MonoBehaviour
@@ -135,7 +136,10 @@ public class ZombieSpawning : MonoBehaviour
         }
         else if (waveSize == 0 && finalWave == true){
 
-            Debug.Log("win");
+            levelCounter counter = FindFirstObjectByType<levelCounter>();
+            counter.LevelWin();
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("startScene");
         }
     }
 }
