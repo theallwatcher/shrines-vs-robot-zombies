@@ -4198,6 +4198,7 @@ MonoBehaviour:
   s1: 1
   s2: 1
   paused: 0
+  godMode: 0
 --- !u!4 &2139664077
 Transform:
   m_ObjectHideFlags: 0

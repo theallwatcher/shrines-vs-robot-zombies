@@ -3,7 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class buttons : MonoBehaviour
 {
-    public void startLevel(){
+    public void startLevel1(){
+
+        //Laad het huidige level in met de SceneManager.
+        SceneManager.LoadScene("SampleScene");
+        Time.timeScale = 1;
+    }
+
+    public void startLevel2()
+    {
 
         //Laad het huidige level in met de SceneManager.
         SceneManager.LoadScene("main");
