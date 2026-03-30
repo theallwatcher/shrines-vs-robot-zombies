@@ -6,7 +6,7 @@ public class buttons : MonoBehaviour
     public void startLevel1(){
 
         //Laad het huidige level in met de SceneManager.
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("tutorial");
         Time.timeScale = 1;
     }
 
