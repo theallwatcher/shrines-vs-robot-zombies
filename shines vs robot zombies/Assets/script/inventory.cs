@@ -18,6 +18,9 @@ public class inventory : MonoBehaviour
     public bool s0 = true;
     public bool s1 = true;
     public bool s2 = true;
+    [SerializeField] List<GameObject> cooldownImages;
+    [SerializeField] List<Transform> spawnpoints;
+    
 
     public bool paused = false;
     public bool godMode = false;
@@ -113,6 +116,7 @@ public class inventory : MonoBehaviour
     IEnumerator S0() { 
     
         s0 = false;
+        GameObject image = Instantiate(cooldownImages[0], spawnpoints[0].position, spawnpoints[0].rotation, spawnpoints[0]);
         yield return new WaitForSeconds(7.5f);
         s0 = true;
     }
@@ -120,6 +124,7 @@ public class inventory : MonoBehaviour
     IEnumerator S1(){
 
         s1 = false;
+        GameObject image = Instantiate(cooldownImages[1], spawnpoints[1].position, spawnpoints[1].rotation, spawnpoints[1]);
         yield return new WaitForSeconds(7.5f);
         s1 = true;
     }
@@ -127,6 +132,7 @@ public class inventory : MonoBehaviour
     IEnumerator S2(){
 
         s2 = false;
+        GameObject image = Instantiate(cooldownImages[2], spawnpoints[2].position, spawnpoints[2].rotation, spawnpoints[2]);
         yield return new WaitForSeconds(30);
         s2 = true;
     }
