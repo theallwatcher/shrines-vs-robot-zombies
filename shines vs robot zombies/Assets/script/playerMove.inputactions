@@ -32,6 +32,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "sel0",
+                    "type": "Button",
+                    "id": "f0a8b670-34c9-4575-a9b7-99f04d71f376",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "sel1",
+                    "type": "Button",
+                    "id": "654400d5-24cf-4b12-8fb3-6b478c129b8a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "sel2",
+                    "type": "Button",
+                    "id": "325ca00b-af08-46fd-b047-41c4dd9a6263",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -142,6 +169,39 @@
                     "processors": "",
                     "groups": ";keyboard",
                     "action": "selectDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "56b6af39-54c5-496d-9935-1b78c762b5bf",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";keyboard",
+                    "action": "sel0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a19e52ef-1e52-437e-bce8-aba929a84e71",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";keyboard",
+                    "action": "sel1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "816adbf4-04a8-4dc0-a542-4f3b1d3fec4f",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";keyboard",
+                    "action": "sel2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

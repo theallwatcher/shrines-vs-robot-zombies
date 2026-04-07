@@ -32,8 +32,8 @@ public class player : MonoBehaviour
     inventory _inventory;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    void Start(){
+
         rb = GetComponent<Rigidbody>();
         _inventory = FindFirstObjectByType<inventory>();
         Cursor.lockState = CursorLockMode.Locked;
@@ -44,12 +44,12 @@ public class player : MonoBehaviour
     private void OnMove(InputValue inputValue){
 
         movementInput = inputValue.Get<Vector2>();
-
     }
 
     private void OnSelectUp() {
 
         if (paused == false){
+
             curSelectShrine++;
             Debug.Log("up");
             ValueChange();
@@ -59,21 +59,46 @@ public class player : MonoBehaviour
     private void OnSelectDown() {
 
         if (paused == false){
+
             curSelectShrine--;
             Debug.Log("douwn");
             ValueChange();
         }
     }
 
+    private void OnSel0(){
+
+        if (paused == false) {
+
+            curSelectShrine = 0;
+            ValueChange();
+        }
+    }
+
+    private void OnSel1(){
+
+        if (paused == false){
+
+            curSelectShrine = 1;
+            ValueChange();
+        }
+    }
+
+    private void OnSel2(){
+
+        if (paused == false){
+
+            curSelectShrine = 2;
+            ValueChange();
+        }
+    }
+
+
 
     // Update is called once per frame
     void Update(){
 
-       
-
         Move();
-
-        
     }
 
     private void Move() { 
@@ -117,14 +142,14 @@ public class player : MonoBehaviour
 
     private void ValueChange() {
 
-        if (curSelectShrine <= 0){
-
-            curSelectShrine = 0;
-        }
-
-        if (curSelectShrine >= 2){
+        if (curSelectShrine < 0){
 
             curSelectShrine = 2;
+        }
+
+        if (curSelectShrine > 2){
+
+            curSelectShrine = 0;
         }
 
         if (shrineSelect != null) {
