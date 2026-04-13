@@ -21,6 +21,8 @@ public class tutorial : MonoBehaviour
     [SerializeField] GameObject zombieTut;
     [SerializeField] Transform spawnPoint;
     [SerializeField] Image progressBar;
+    GameObject finalZom;
+    bool lastZom = false;
 
     public int totZom;
     public int maxZom;
@@ -46,6 +48,16 @@ public class tutorial : MonoBehaviour
 
             totZom--;
             Stage3();
+        }
+
+        if (finalZom == null && lastZom == true) {
+
+            lastZom = false;
+
+            levelCounter counter = FindFirstObjectByType<levelCounter>();
+            counter.LevelWin();
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("startScene");
         }
     }
 
@@ -98,7 +110,7 @@ public class tutorial : MonoBehaviour
     IEnumerator Wave(){
 
         GameObject zombie = Instantiate(zombiePre, spawnPoint.position, spawnPoint.rotation);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         Debug.Log("wave" + waveSize);
         if (waveSize > 0){
 
@@ -107,10 +119,9 @@ public class tutorial : MonoBehaviour
         }
         else if (waveSize == 0){
 
-            levelCounter counter = FindFirstObjectByType<levelCounter>();
-            counter.LevelWin();
-            Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene("startScene");
+            finalZom = zombie;
+            lastZom = true;
+            
         }
     }
 }

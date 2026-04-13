@@ -31,6 +31,7 @@ public class Zombie : MonoBehaviour
 
     private void Update(){
 
+
         Vector3 forward = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
         Debug.DrawLine(transform.position, forward, Color.green);
         if (IsCloseEnough() == true && isMoving == true){

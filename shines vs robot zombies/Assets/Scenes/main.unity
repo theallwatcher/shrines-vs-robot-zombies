@@ -9117,7 +9117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::player
   speed: 9
-  health: 5000
+  health: 1000
   healthText: {fileID: 25502031}
   curSelectShrine: 0
   shrineSelectorPref: {fileID: 7380476385253675162, guid: 44975581e51255f42bddeca8b46c3d40, type: 3}
@@ -12143,7 +12143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e4aa18628ba5642bed9ac01b1f4235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::inventory
-  skyShardsCount: 5000
+  skyShardsCount: 50
   skyShardsCost: 640000003200000032000000
   skyShardText: {fileID: 490592126}
   randomX: 0

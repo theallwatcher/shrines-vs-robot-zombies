@@ -18,7 +18,7 @@ public class pauzer : MonoBehaviour
     // Update is called once per frame
     void Update(){
 
-        if (Keyboard.current.pKey.wasPressedThisFrame){
+        if (Keyboard.current.escapeKey.wasPressedThisFrame){
 
             if (t == 0){
 

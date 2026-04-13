@@ -10,6 +10,7 @@ public class AttackShrine : MonoBehaviour
     [SerializeField] Transform firePoint;
 
     Coroutine lastRoutine = null;
+    int layerMask;
 
 
     // Update is called once per frame
@@ -45,9 +46,13 @@ public class AttackShrine : MonoBehaviour
         lastRoutine = StartCoroutine(shooting());
     }
 
+    private void Start(){
+        
+        layerMask = ~LayerMask.GetMask("shrine", "bullet", "Default", "skyShard","player");
+    }
+
     bool ZombieInLane(){
 
-        int layerMask = ~LayerMask.GetMask("shrine", "bullet", "Default", "skyShard");
         RaycastHit _hit;
 
         if (Physics.Raycast(transform.position, transform.forward, out _hit, 27f,layerMask)){

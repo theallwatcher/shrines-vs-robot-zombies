@@ -18,6 +18,8 @@ public class ZombieSpawning : MonoBehaviour
     public int waveSize;
     public int randomZom;
     bool finalWave= false;
+    GameObject finalZom;
+    bool lastZom = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
@@ -25,6 +27,19 @@ public class ZombieSpawning : MonoBehaviour
         StartCoroutine(StartUp());
         float newWidth = (float)totZom / maxZom;
         progressBar.fillAmount = newWidth;
+    }
+
+    private void Update(){
+
+        if (finalZom == null && lastZom == true){
+
+            lastZom = false;
+
+            levelCounter counter = FindFirstObjectByType<levelCounter>();
+            counter.LevelWin();
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("startScene");
+        }
     }
 
     IEnumerator StartUp() { 
@@ -120,7 +135,7 @@ public class ZombieSpawning : MonoBehaviour
         }
 
         GameObject zombie = Instantiate(zombiePre[randomZom], spawnPoints[randomSpawn].position, spawnPoints[randomSpawn].rotation);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         Debug.Log("wave" + waveSize);
         if (waveSize > 0){
 
@@ -136,10 +151,8 @@ public class ZombieSpawning : MonoBehaviour
         }
         else if (waveSize == 0 && finalWave == true){
 
-            levelCounter counter = FindFirstObjectByType<levelCounter>();
-            counter.LevelWin();
-            Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene("startScene");
+            finalZom = zombie;
+            lastZom = true;
         }
     }
 }
