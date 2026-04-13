@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class ZombieSpawning : MonoBehaviour
 {
     [SerializeField] List<Transform> spawnPoints;
-    [SerializeField] int totZom = 50;
-    public int maxZom = 50;
+    [SerializeField] int totZom = 40;
+    public int maxZom = 40;
     [SerializeField] List<GameObject> zombiePre;
     [SerializeField] Image progressBar;
     public float tilNextZom;
@@ -43,14 +43,14 @@ public class ZombieSpawning : MonoBehaviour
         yield return new WaitForSeconds(tilNextZom);
 
 
-        if (totZom > 0 && totZom > 45){
+        if (totZom > 0 && totZom > 35){
 
             totZom--;
             float newWidth = (float)totZom / maxZom;
             progressBar.fillAmount = newWidth;
             StartCoroutine(Spawning1());
         }
-        else if (totZom > 0 && totZom <= 45){
+        else if (totZom > 0 && totZom <= 35){
 
             Debug.Log("2");
             StartCoroutine(Spawning2());
@@ -67,14 +67,14 @@ public class ZombieSpawning : MonoBehaviour
 
         yield return new WaitForSeconds(tilNextZom);
 
-        if (totZom > 0 && totZom != 25){
+        if (totZom > 0 && totZom != 20){
 
             totZom--;
             float newWidth = (float)totZom / maxZom;
             progressBar.fillAmount = newWidth;
             StartCoroutine(Spawning2());
         }
-        else if (totZom > 0 && totZom <= 25){
+        else if (totZom > 0 && totZom <= 20){
 
             waveSize = Random.Range(10, 20);
             StartCoroutine(Wave());

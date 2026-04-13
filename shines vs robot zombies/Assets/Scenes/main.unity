@@ -6734,8 +6734,8 @@ MonoBehaviour:
   - {fileID: 140930486}
   - {fileID: 1970516498}
   - {fileID: 168743132}
-  totZom: 50
-  maxZom: 50
+  totZom: 40
+  maxZom: 40
   zombiePre:
   - {fileID: 6352560290505875782, guid: fdbf77cf856090545990696cf4fae508, type: 3}
   - {fileID: 6352560290505875782, guid: 1e3161c4946fecd49b04c07e8f2205a8, type: 3}
